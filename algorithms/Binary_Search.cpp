@@ -1,6 +1,6 @@
 /**
 * Алгоритм бинарного поиска.
-*/   
+*/
 #include "../include/Header.h"
 int BinarySearch(Employee* emp, int count_emp, int key) {
 	// Бинарный поиск.
