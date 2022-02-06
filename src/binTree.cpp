@@ -3,20 +3,32 @@
 #include <sstream>
 #include <string>
 
-BinTree* addNode(BinTree* tree, Employee data)
+Node* addNode(Node* tree, Employee& data)
 {
+
+	/*
+	* ≈сли указатель равен нулю, то добавл€ем узел.
+	*/
 	if (tree == nullptr) {
-		BinTree* node = new BinTree();
+		Node* node = new Node();
 		node->emp = data;
 		node->left = nullptr;
 		node->right = nullptr;
 		return node;
 	}
 	 
+	/*
+	* ≈сли переданное значение меньше чем значение узла..
+	* продолжаем рассматривать дерево влево.
+	*/
 	if (data.name < tree->emp.name) {
 		tree->left = addNode(tree->left, data);
 	}
 
+	/*
+	* ≈сли переданное значение меньше чем значение узла..
+	* продолжаем рассматривать дерево вправо.
+	*/
 	if (data.name > tree->emp.name) {
 		tree->right = addNode(tree->right, data);
 	}
@@ -24,9 +36,9 @@ BinTree* addNode(BinTree* tree, Employee data)
 	return tree;
 }
 
-void createTree(ifstream& out, string path, BinTree* tree, int count_emp)
+void createTree(ifstream& out, string path, Node*& tree, int count_emp)
 {
-	out.open(path, ios::in);
+	out.open(path, ios::in); // ќткрываем файл дл€ чтени€.
 	string line;
 	Employee temp;
 	if (out.is_open()) { // ѕровер€ем, если файл открыт.
@@ -36,21 +48,33 @@ void createTree(ifstream& out, string path, BinTree* tree, int count_emp)
 			string t_name, t_date, t_salary; // вводим временные перменные.
 			getline(str, t_name, ','); temp.id = stoi(t_name); // считываем id.
 			getline(str, temp.name, ','); // считываем им€.
-			getline(str, t_date, ',');  temp.bdate = Date(t_date); // считываем дату рождени€.
+			getline(str, t_date, ','); temp.bdate = Date(t_date); // считываем дату рождени€.
 			getline(str, temp.department, ','); // считываем департамент.
 			getline(str, t_salary, ','); temp.salary = stod(t_salary);// считываем зарплату.
-			addNode(tree, temp); // добавл€ем в дерево узел с информацией.
+			tree = addNode(tree, temp); // добавл€ем в дерево узел с информацией.
 		}
+	}
+	else {
+		cout << "File is not Open!" << endl;
+		exit(0);
 	}
 	out.close(); // «акрываем файл.
 }
 
-void printTree(BinTree* tree)
+void printTree(Node* tree)
 {
 	if (tree == nullptr) {
-		cout << "Tree is Empty";
+		return;
 	}
 	printTree(tree->left);
-	cout << tree->emp.toString();
+	cout << tree->emp.toString() << endl;
 	printTree(tree->right);
+}
+
+void deleteTree(Node* tree)
+{
+	if (tree->left) deleteTree(tree->left);
+	if (tree->right) deleteTree(tree->right);
+	delete tree;
+	return;
 }

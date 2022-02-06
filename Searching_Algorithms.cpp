@@ -11,6 +11,7 @@ void outFileArray(ifstream& out, string path, Employee* emp, int count_emp);
 void printArray(Employee* emp, int count_emp);
 int BinarySearch(Employee* emp, int count_emp, int key);
 int SequentialSearch(Employee* emp, int count_emp, int key);
+Node* TreeSearch(Node* tree, string key, int&);
 
 int main()
 {
@@ -47,12 +48,53 @@ int main()
 	// Удаляем созданный массив.
 	delete[] emp;
 
+	// Бинарное дерево. 
+	Node* tree = nullptr;
+	Node* result = nullptr;
+	int it_count = 0;
+	path = "data/in_inordered.txt";
+
+	// Создание бинарного дерева.
+	createTree(out, path, tree, count_emp);
+	
+	// Вывод бинарного дерева.
+	cout << endl << endl << " > Emoloyee (Tree): " << endl;
+	printTree(tree);
+
+	// Поиск в бинарном дереве.
+	cout << endl << endl << " > Binary Tree Search";
+	result = TreeSearch(tree, "Melloni Tea", it_count);
+	cout << endl << "Searched Employee: ";
+	if (result == nullptr)
+		cout << "Unknown Employee.";
+	else
+		cout << result->emp.toString() << endl << "Count of iterrations: " << it_count << endl;
+	deleteTree(tree);
+	
 
 
 	system("pause > nul");
 	
 }
 
+Node* TreeSearch(Node* tree, string key, int& it_count) {
+	// Поиск в бинарном дереве.
+	// tree - указатель на вершину дерева.
+	// key - искомый сотрудник (имя).
+	// it_count - количество иттераций.
+	if ((tree == nullptr) || (key == tree->emp.name)) {
+		return tree;
+	}
+	if (key > tree->emp.name) {
+		it_count = it_count + 1;
+		tree = TreeSearch(tree->right, key, it_count);
+	}
+	else {
+		it_count = it_count + 1;
+		tree = TreeSearch(tree->left,  key, it_count);
+	}
+	return tree;
+}
 
 int BinarySearch(Employee* emp, int count_emp, int key) {
 	// Бинарный поиск.

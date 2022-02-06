@@ -1,12 +1,36 @@
 #pragma once
 #include "Employee.h"
 
-struct BinTree {
+struct Node {
 	Employee emp;
-	BinTree* left;
-	BinTree* right;
+	Node* left;
+	Node* right;
 };
 
-BinTree* addNode(BinTree* tree, Employee emp); 
-void createTree(ifstream& out, string path, BinTree* tree, int count_emp);
-void printTree(BinTree* tree);
+/*
+* ƒобавление узла в дерево.
+* tree - указать на вершину дерева.
+* emp - данные, которые будет содержать узел.
+*/
+Node* addNode(Node* tree, Employee& emp); 
+
+
+/*
+* ‘ормирование бинарного дерева (записи достаютс€ из файлов).
+* out - входной файловый поток.
+* tree - ссылка на указатель вершины дерева.
+* count_emp - количество записей.
+*/
+void createTree(ifstream& out, string path, Node*& tree, int count_emp);
+
+/*
+* ¬ывод бинарного дерева.
+* tree - указатель вершины дерева.
+*/
+void printTree(Node* tree);
+
+/*
+* ”далание бинарного дерева.
+* tree - указатель вершины дерева.
+*/
+void deleteTree(Node* tree);
