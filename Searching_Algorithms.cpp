@@ -5,6 +5,7 @@
 #include "include/Date.h"
 #include "include/Employee.h"
 #include "include/binTree.h"
+
 using namespace std;
 
 int count_file_lines(ifstream& out) {
@@ -94,6 +95,7 @@ int BinarySearch(Employee* emp, int count_emp, int key) {
 	cout << "Count of iterrations: " << it_count << endl;
 	return -1;
 }
+
 int main()
 {
 
@@ -134,3 +136,4 @@ int main()
 	system("pause > nul");
 	
 }
+

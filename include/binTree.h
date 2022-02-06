@@ -1,8 +1,12 @@
 #pragma once
 #include "Employee.h"
-struct EmployeeTree {
+
+struct BinTree {
 	Employee emp;
-	EmployeeTree* left;
-	EmployeeTree* right;
-	EmployeeTree* addNode(EmployeeTree* tree, Employee emp);
+	BinTree* left;
+	BinTree* right;
 };
+
+BinTree* addNode(BinTree* tree, Employee emp); 
+void createTree(ifstream& out, string path, BinTree* tree, int count_emp);
+void printTree(BinTree* tree);
