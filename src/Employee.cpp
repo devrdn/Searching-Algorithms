@@ -4,7 +4,6 @@ Employee::Employee()
 {
 	this->id = 0;
 	this->name = "John Doe";
-	//this->bdate = "01.01.1900";
 	this->department = "No Department";
 	this->salary = 0.0;
 }
