@@ -9,7 +9,8 @@ using namespace std;
 int count_file_lines(ifstream& out);
 void outFileArray(ifstream& out, string path, Employee* emp, int count_emp);
 void printArray(Employee* emp, int count_emp);
-
+int BinarySearch(Employee* emp, int count_emp, int key);
+int SequentialSearch(Employee* emp, int count_emp, int key);
 
 int main()
 {
@@ -50,6 +51,46 @@ int main()
 
 	system("pause > nul");
 	
+}
+
+
+int BinarySearch(Employee* emp, int count_emp, int key) {
+	// Бинарный поиск.
+	// emp - массив объектов.
+	// count_emp - количество сотрудников.
+	// key - искомый номер сотрудника.
+	cout << endl << endl << " > Binary Search: " << endl;
+	int a = 0, b = count_emp - 1, c = 0;
+	int it_count = 0;
+	while (a < b) {
+		it_count++;
+		c = (a + b) / 2;
+		if (key < emp[c].id) b = c - 1;
+		else if (key > emp[c].id) a = c + 1;
+		else {
+			cout << "Count of iterrations: " << it_count << endl;
+			return c;
+		}
+	}
+	cout << "Count of iterrations: " << it_count << endl;
+	return -1;
+}
+
+int SequentialSearch(Employee* emp, int count_emp, int key) {
+	// emp - массив объектов.
+	// count_emp - количество сотрудников.
+	// key - искомый номер сотрудника.
+	cout << endl << endl << " > Sequential Search: " << endl;
+	int it_count = 0;
+	for (int i = 0; i < count_emp; i++) {
+		it_count++;
+		if (emp[i].id == key) { // Если номер сотрудника, совпал с искомым, то возвращаем позицию.
+			cout << "Count of iterrations: " << it_count << endl;
+			return i;
+		}
+	}
+	cout << "Count of iterrations: " << it_count << endl;
+	return -1;
 }
 
 
@@ -97,4 +138,5 @@ void outFileArray(ifstream& out, string path, Employee* emp, int count_emp) {
 	}
 	out.close();
 }
+
 
