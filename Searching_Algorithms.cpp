@@ -2,9 +2,9 @@
 #include <fstream>
 #include <sstream>
 #include <string>
-#include "Date.h"
-#include "Employee.h"
-#include "binTree.h"
+#include "include/Date.h"
+#include "include/Employee.h"
+#include "include/binTree.h"
 using namespace std;
 
 int count_file_lines(ifstream& out) {
@@ -101,7 +101,7 @@ int main()
 	int id = 0;
 
 	// Инициализируем путь и массив объектов.
-	string path = "../in_inordered.txt";
+	string path = "data/in_inordered.txt";
 	ifstream out(path);
 	int count_emp = count_file_lines(out) - 1;
 	Employee* emp = new Employee[count_emp];
@@ -117,7 +117,7 @@ int main()
 
 
 	// Записываем в массив объектов, упорядоченные записи с файла.
-	path = "../in_ordered.txt";
+	path = "data/in_ordered.txt";
 	outFileArray(out, path, emp, count_emp);
 	cout << endl << endl << endl << " > Emoloyee (ordered): " << endl;
 	printArray(emp, count_emp);
