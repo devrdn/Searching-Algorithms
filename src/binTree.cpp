@@ -1,4 +1,4 @@
-#include "../include/binTree.h"
+п»ї#include "../include/binTree.h"
 #include <fstream>
 #include <sstream>
 #include <string>
@@ -7,7 +7,7 @@ Node* addNode(Node* tree, Employee& data)
 {
 
 	/*
-	* Если указатель равен нулю, то добавляем узел.
+	* Р•СЃР»Рё СѓРєР°Р·Р°С‚РµР»СЊ СЂР°РІРµРЅ РЅСѓР»СЋ, С‚Рѕ РґРѕР±Р°РІР»СЏРµРј СѓР·РµР».
 	*/
 	if (tree == nullptr) {
 		Node* node = new Node();
@@ -18,16 +18,16 @@ Node* addNode(Node* tree, Employee& data)
 	}
 	 
 	/*
-	* Если переданное значение меньше чем значение узла..
-	* продолжаем рассматривать дерево влево.
+	* Р•СЃР»Рё РїРµСЂРµРґР°РЅРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ РјРµРЅСЊС€Рµ С‡РµРј Р·РЅР°С‡РµРЅРёРµ СѓР·Р»Р°..
+	* РїСЂРѕРґРѕР»Р¶Р°РµРј СЂР°СЃСЃРјР°С‚СЂРёРІР°С‚СЊ РґРµСЂРµРІРѕ РІР»РµРІРѕ.
 	*/
 	if (data.name < tree->emp.name) {
 		tree->left = addNode(tree->left, data);
 	}
 
 	/*
-	* Если переданное значение меньше чем значение узла..
-	* продолжаем рассматривать дерево вправо.
+	* Р•СЃР»Рё РїРµСЂРµРґР°РЅРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ РјРµРЅСЊС€Рµ С‡РµРј Р·РЅР°С‡РµРЅРёРµ СѓР·Р»Р°..
+	* РїСЂРѕРґРѕР»Р¶Р°РµРј СЂР°СЃСЃРјР°С‚СЂРёРІР°С‚СЊ РґРµСЂРµРІРѕ РІРїСЂР°РІРѕ.
 	*/
 	if (data.name > tree->emp.name) {
 		tree->right = addNode(tree->right, data);
@@ -38,27 +38,27 @@ Node* addNode(Node* tree, Employee& data)
 
 void createTree(ifstream& out, string path, Node*& tree, int count_emp)
 {
-	out.open(path, ios::in); // Открываем файл для чтения.
+	out.open(path, ios::in); // РћС‚РєСЂС‹РІР°РµРј С„Р°Р№Р» РґР»СЏ С‡С‚РµРЅРёСЏ.
 	string line;
 	Employee temp;
-	if (out.is_open()) { // Проверяем, если файл открыт.
+	if (out.is_open()) { // РџСЂРѕРІРµСЂСЏРµРј, РµСЃР»Рё С„Р°Р№Р» РѕС‚РєСЂС‹С‚.
 		for (int i = 0; i < count_emp && getline(out, line); i++)
 		{
-			stringstream str(line); // инициализируем строковый поток.
-			string t_name, t_date, t_salary; // вводим временные перменные.
-			getline(str, t_name, ','); temp.id = stoi(t_name); // считываем id.
-			getline(str, temp.name, ','); // считываем имя.
-			getline(str, t_date, ','); temp.bdate = Date(t_date); // считываем дату рождения.
-			getline(str, temp.department, ','); // считываем департамент.
-			getline(str, t_salary, ','); temp.salary = stod(t_salary);// считываем зарплату.
-			tree = addNode(tree, temp); // добавляем в дерево узел с информацией.
+			stringstream str(line); // РёРЅРёС†РёР°Р»РёР·РёСЂСѓРµРј СЃС‚СЂРѕРєРѕРІС‹Р№ РїРѕС‚РѕРє.
+			string t_name, t_date, t_salary; // РІРІРѕРґРёРј РІСЂРµРјРµРЅРЅС‹Рµ РїРµСЂРјРµРЅРЅС‹Рµ.
+			getline(str, t_name, ','); temp.id = stoi(t_name); // СЃС‡РёС‚С‹РІР°РµРј id.
+			getline(str, temp.name, ','); // СЃС‡РёС‚С‹РІР°РµРј РёРјСЏ.
+			getline(str, t_date, ','); temp.bdate = Date(t_date); // СЃС‡РёС‚С‹РІР°РµРј РґР°С‚Сѓ СЂРѕР¶РґРµРЅРёСЏ.
+			getline(str, temp.department, ','); // СЃС‡РёС‚С‹РІР°РµРј РґРµРїР°СЂС‚Р°РјРµРЅС‚.
+			getline(str, t_salary, ','); temp.salary = stod(t_salary);// СЃС‡РёС‚С‹РІР°РµРј Р·Р°СЂРїР»Р°С‚Сѓ.
+			tree = addNode(tree, temp); // РґРѕР±Р°РІР»СЏРµРј РІ РґРµСЂРµРІРѕ СѓР·РµР» СЃ РёРЅС„РѕСЂРјР°С†РёРµР№.
 		}
 	}
 	else {
 		cout << "File is not Open!" << endl;
 		exit(0);
 	}
-	out.close(); // Закрываем файл.
+	out.close(); // Р—Р°РєСЂС‹РІР°РµРј С„Р°Р№Р».
 }
 
 void printTree(Node* tree)

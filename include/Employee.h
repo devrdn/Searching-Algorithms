@@ -1,15 +1,15 @@
-#pragma once
+п»ї#pragma once
 #include <iostream>
 #include "Date.h"
 using namespace std;
 class Employee
 {
 public:
-	int id; // Номер сотрудника.
-	string name; // ФИО сотрудника.
-	Date bdate; // День рождение сотрудника.
-	string department; // Отдел сотрудника.
-	double salary; // Зарплата сотрудника
+	int id; // РќРѕРјРµСЂ СЃРѕС‚СЂСѓРґРЅРёРєР°.
+	string name; // Р¤РРћ СЃРѕС‚СЂСѓРґРЅРёРєР°.
+	Date bdate; // Р”РµРЅСЊ СЂРѕР¶РґРµРЅРёРµ СЃРѕС‚СЂСѓРґРЅРёРєР°.
+	string department; // РћС‚РґРµР» СЃРѕС‚СЂСѓРґРЅРёРєР°.
+	double salary; // Р—Р°СЂРїР»Р°С‚Р° СЃРѕС‚СЂСѓРґРЅРёРєР°
 	Employee();
 	Employee(int id, string name, Date bdate, string department, float salary);
 	string toString();
