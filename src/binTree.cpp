@@ -1,7 +1,7 @@
-﻿#include "../include/binTree.h"
-#include <fstream>
+﻿#include <fstream>
 #include <sstream>
 #include <string>
+#include "../include/binTree.h"
 
 Node* addNode(Node* tree, Employee& data)
 {
