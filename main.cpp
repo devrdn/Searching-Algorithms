@@ -103,7 +103,7 @@ int main()
 			}
 		}
 		system("pause > nul");
-	} while (flag != '4');
+	} while (flag != '5');
 
 	/* Освобождение памяти */
 	delete[] emp_ord;
