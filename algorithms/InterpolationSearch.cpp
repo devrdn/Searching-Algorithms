@@ -7,8 +7,8 @@
 */
 int InterpolationSearch(Employee* arr, int count, int key) {
 	cout << endl << endl << " > Interpolation Search: " << endl;
-	int left = 0;  int right = count - 1; // »ндексы конца и начала массива.
-	int it_count = 0; // —четчик итераций.
+	int left = 0;  int right = count - 1; // Индексы конца и начала массива.
+	int it_count = 0; // Счетчик итераций.
 
 	// Левая сторона отрезка, должна быть меньше, чем лева¤.
 	//  Ключ должен находитс¤ в пределах определенных отерзком.
