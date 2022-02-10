@@ -5,9 +5,12 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
+#include <conio.h>
 #include <string>
 
 using namespace std;
+
+typedef Node* Tree;
 
 /*
 * Бинарный поиск.
