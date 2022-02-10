@@ -14,19 +14,19 @@ typedef Node* Tree;
 
 /*
 * Бинарный поиск.
-* emp - массив объектов класса Employee.
-* count_emp - количество элементов в массиве.
+* arr - массив объектов класса Employee.
+* count - количество элементов в массиве.
 * key - ключ поиска.
 */
-int BinarySearch(Employee* emp, int count_emp, int key);
+int BinarySearch(Employee* arr, int count, int key);
 
 /*
 * Последовательный поиск.
-* emp - массив объектов класса Employee.
-* count_emp - количество элементов в массиве.
+* arr - массив объектов класса Employee.
+* count - количество элементов в массиве.
 * key - ключ поиска.
 */
-int SequentialSearch(Employee* emp, int count_emp, int key);
+int SequentialSearch(Employee* arr, int count, int key);
 
 /*
 * Поиск в бинарном дереве.
@@ -35,3 +35,10 @@ int SequentialSearch(Employee* emp, int count_emp, int key);
 * it_count - количество иттераций.
 */
 Node* BinTreeSearch(Node* tree, string key, int& it_count);
+
+/*
+* arr - массив объектов класса Employee.
+* count - количество элементов в массиве.
+* key - ключ поиска.
+*/
+int InterpolationSearch(Employee* arr, int count, int key);

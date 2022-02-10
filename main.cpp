@@ -44,8 +44,9 @@ int main()
 		cout << "Select Method: " << endl << endl;
 		cout << " 1. Sequential Search." << endl;
 		cout << " 2. Binary Search." << endl;
-		cout << " 3. Binary Tree Search." << endl;
-		cout << " 4. Exit." << endl;
+		cout << " 3. Interpolation Search." << endl;
+		cout << " 4. Binary Tree Search." << endl;
+		cout << " 5. Exit." << endl;
 		cout << "> ";
 		flag = _getche();
 		system("cls");
@@ -70,6 +71,15 @@ int main()
 			}
 			case '3':
 			{
+				/* Поиск методом интерполяции */
+				cout << " > Ordered List of Employee: " << endl;
+				printArray(emp_ord, count_emp);
+				id = InterpolationSearch(emp_ord, count_emp, number_key);
+				cout << "Searched Employee: " << ((id == -1) ? "Unknown Employee." : emp_ord[id].toString());
+				break;
+			}
+			case '4':
+			{
 				/* Поиск в бинарном дереве */
 				Tree result = nullptr; // Результат поиска.
 				cout << endl << endl << " > List of Emoloyee (Tree): " << endl;
@@ -82,7 +92,7 @@ int main()
 					cout << endl << "Searched Employee: " << result->emp.toString() << endl << "Count of iterrations: " << it_count << endl;
 				break;
 			}
-			case '4':
+			case '5':
 			{
 				break;
 			}
@@ -95,6 +105,7 @@ int main()
 		system("pause > nul");
 	} while (flag != '4');
 
+	/* Освобождение памяти */
 	delete[] emp_ord;
 	delete[] emp_inord;
 	deleteTree(tree);
