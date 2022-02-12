@@ -3,7 +3,7 @@
 /*
 * Последовательный поиск.
 * arr - массив объектов класса Employee.
-* count- количество элементов в массиве.
+* count - количество элементов в массиве.
 * key - ключ поиска.
 */
 int SequentialSearch(Employee* arr, int count, int key) {
