@@ -6,6 +6,7 @@
 #include <fstream>
 #include <sstream>
 #include <conio.h>
+#include <stdlib.h>
 #include <string>
 
 using namespace std;
@@ -40,5 +41,14 @@ Node* BinTreeSearch(Node* tree, string key, int& it_count);
 * arr - массив объектов класса Employee.
 * count - количество элементов в массиве.
 * key - ключ поиска.
+* int номер индекса элемента.
 */
 int InterpolationSearch(Employee* arr, int count, int key);
+
+/*
+* Поиск Фиббоначи.
+* arr - массив объектов класса Employee.
+* count - количество элементов в массиве.
+* key - ключ поиска.
+*/
+int FibonaccianSearch(Employee* arr, int count, int key);

@@ -45,17 +45,31 @@ int main()
 		cout << " 1. Sequential Search." << endl;
 		cout << " 2. Binary Search." << endl;
 		cout << " 3. Interpolation Search." << endl;
-		cout << " 4. Binary Tree Search." << endl;
-		cout << " 5. Exit." << endl;
+		cout << " 4. Fibonacci Search." << endl;
+		cout << " 5. Binary Tree Search." << endl;
+		cout << " 6. Exit." << endl;
 		cout << "> ";
 		flag = _getche();
 		system("cls");
+
+		// Вывод записей в упорядоченном виде.
+		if (flag == '1') {
+			cout << " > InOrdered List of Employee: " << endl;
+			printArray(emp_inord, count_emp);
+		}
+		else if (flag == '2' || flag == '3' || flag == '4') {
+			cout << " > Ordered List of Employee: " << endl;
+			printArray(emp_ord, count_emp);
+		}
+		else if (flag == '5') {
+			cout << endl << endl << " > List of Emoloyee (Tree): " << endl;
+			printTree(tree);
+		}
+
 		switch (flag) {
 			case '1':
 			{
 				/* Последовательный поиск в неупорядоченной таблице */
-				cout << " > InOrdered List of Employee: " << endl;
-				printArray(emp_inord, count_emp);
 				id = SequentialSearch(emp_inord, count_emp, number_key);
 				cout << "Searched Employee: " << ((id == -1) ? "Unknown Employee." : emp_inord[id].toString());
 				break;
@@ -63,8 +77,6 @@ int main()
 			case '2':
 			{
 				/* Бинарный поиск в упорядоченной таблице */
-				cout << " > Ordered List of Employee: " << endl;
-				printArray(emp_ord, count_emp);
 				id = BinarySearch(emp_ord, count_emp, number_key);
 				cout << "Searched Employee: " << ((id == -1) ? "Unknown Employee." : emp_ord[id].toString());
 				break;
@@ -72,18 +84,21 @@ int main()
 			case '3':
 			{
 				/* Поиск методом интерполяции */
-				cout << " > Ordered List of Employee: " << endl;
-				printArray(emp_ord, count_emp);
 				id = InterpolationSearch(emp_ord, count_emp, number_key);
 				cout << "Searched Employee: " << ((id == -1) ? "Unknown Employee." : emp_ord[id].toString());
 				break;
 			}
 			case '4':
 			{
+				id = FibonaccianSearch(emp_ord, number_key, count_emp);
+				cout << "Searched Employee: " << ((id == -1) ? "Unknown Employee." : emp_ord[id].toString());
+				break;
+			}
+			case '5':
+			{
 				/* Поиск в бинарном дереве */
 				Tree result = nullptr; // Результат поиска.
-				cout << endl << endl << " > List of Emoloyee (Tree): " << endl;
-				printTree(tree);
+
 				cout << endl << endl << " > Binary Tree Search: ";
 				result = BinTreeSearch(tree, string_key, it_count);
 				if (result == nullptr) // Проверка, если результат существует.
@@ -92,7 +107,7 @@ int main()
 					cout << endl << "Searched Employee: " << result->emp.toString() << endl << "Count of iterrations: " << it_count << endl;
 				break;
 			}
-			case '5':
+			case '6':
 			{
 				break;
 			}
@@ -103,7 +118,7 @@ int main()
 			}
 		}
 		system("pause > nul");
-	} while (flag != '5');
+	} while (flag != '6');
 
 	/* Освобождение памяти */
 	delete[] emp_ord;
