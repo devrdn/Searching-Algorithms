@@ -15,7 +15,7 @@ int main()
 	const string string_key = "Melloni Tea"; 
 
 	/* Пути к файлам со списком */
-	const string inord_path = "data/inordered.txt"; // путь к файлу с неотсортированными данным.
+	const string inord_path = "data/unordered.txt"; // путь к файлу с неотсортированными данным.
 	const string ord_path = "data/ordered.txt"; // уть к файлу с отсортированными данным.
 
 	/* Инициализация переменных */

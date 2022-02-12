@@ -9,6 +9,8 @@
 int SequentialSearch(Employee* arr, int count, int key) {
 	cout << endl << endl << " > Sequential Search: " << endl;
 	int it_count = 0;
+
+	// Обход массива от 0 до N.
 	for (int i = 0; i < count; i++) {
 		it_count++;
 		if (arr[i].id == key) { // Если номер сотрудника, совпал с искомым, то возвращаем позицию.
@@ -17,6 +19,7 @@ int SequentialSearch(Employee* arr, int count, int key) {
 		}
 	}
 	cout << "Count of iterrations: " << it_count << endl;
+
 	// Если сотрудник не был найден, то возвращаем -1.
 	return -1;
 }
