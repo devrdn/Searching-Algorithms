@@ -98,7 +98,6 @@ int main()
 			{
 				/* Поиск в бинарном дереве */
 				Tree result = nullptr; // Результат поиска.
-
 				cout << endl << endl << " > Binary Tree Search: ";
 				result = BinTreeSearch(tree, string_key, it_count);
 				if (result == nullptr) // Проверка, если результат существует.
@@ -179,18 +178,3 @@ void outFileArray(ifstream& out, string path, Employee* emp, int count_emp) {
 	}
 	out.close();
 }
-
-class ArinaLucshayaDevushka {
-	int ArinaLove;
-public:
-	ArinaLucshayaDevushka() {
-		ArinaLove = 1;
-	}
-	ArinaLucshayaDevushka(int ArinaLove) {
-		this->ArinaLove = ArinaLove;
-	}
-};
-
-
-
-
